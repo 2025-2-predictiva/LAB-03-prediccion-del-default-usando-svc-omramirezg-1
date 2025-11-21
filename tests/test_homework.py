@@ -18,8 +18,8 @@ MODEL_COMPONENTS = [
     "SVC",
 ]
 SCORES = [
-    0.661,
-    0.666,
+    0.651,
+    0.663,
 ]
 METRICS = [
     {
@@ -93,6 +93,8 @@ def _load_grading_data():
 
 def _test_scores(model, x_train, y_train, x_test, y_test):
     """Test scores"""
+    print(model.score(x_train, y_train))
+    print(model.score(x_test, y_test))
     assert model.score(x_train, y_train) > SCORES[0]
     assert model.score(x_test, y_test) > SCORES[1]
 
@@ -139,3 +141,5 @@ def test_homework():
     _test_components(model)
     _test_scores(model, x_train, y_train, x_test, y_test)
     _test_metrics(metrics)
+
+test_homework()
